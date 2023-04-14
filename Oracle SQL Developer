@@ -1,0 +1,301 @@
+show table ride_data;
+CREATE TABLE ride_data (
+  ride_id NUMBER,
+  rideable_type VARCHAR2(50),
+  started_at TIMESTAMP,
+  ended_at TIMESTAMP,
+  start_station_name VARCHAR2(100),
+  start_station_id NUMBER,
+  end_station_name VARCHAR2(100),
+  end_station_id NUMBER,
+  start_lat NUMBER(10, 6),
+  start_lng NUMBER(10, 6),
+  end_lat NUMBER(10, 6),
+  end_lng NUMBER(10, 6),
+  member_casual VARCHAR2(10)
+);
+SELECT *
+FROM RIDE_DATA
+select*
+from ride_data
+CREATE TABLE Ride_data (
+  RIDE_ID VARCHAR2(4000),
+  RIDEABLE_TYPE VARCHAR2(4000),
+  STARTED_AT TIMESTAMP,
+  ENDED_AT TIMESTAMP,
+  START_STATION_NAME VARCHAR2(4000),
+  START_STATION_ID VARCHAR2(4000),
+  END_STATION_NAME VARCHAR2(4000),
+  END_STATION_ID VARCHAR2(4000),
+  START_LAT VARCHAR2(4000),
+  START_LNG VARCHAR2(4000),
+  END_LAT VARCHAR2(4000),
+  END_LNG VARCHAR2(4000),
+  MEMBER_CASUAL VARCHAR2(4000)
+);
+UPDATE Ride_data
+SET RIDE_ID = 'Unknown' WHERE RIDE_ID IS NULL;
+
+UPDATE Ride_data
+SET RIDEABLE_TYPE = 'Unknown' WHERE RIDEABLE_TYPE IS NULL;
+
+UPDATE Ride_data
+SET STARTED_AT = TIMESTAMP '1970-01-01 00:00:00' WHERE STARTED_AT IS NULL;
+
+UPDATE Ride_data
+SET ENDED_AT = TIMESTAMP '1970-01-01 00:00:00' WHERE ENDED_AT IS NULL;
+
+UPDATE Ride_data
+SET START_STATION_NAME = 'Unknown' WHERE START_STATION_NAME IS NULL;
+
+UPDATE Ride_data
+SET START_STATION_ID = 'Unknown' WHERE START_STATION_ID IS NULL;
+
+UPDATE Ride_data
+SET END_STATION_NAME = 'Unknown' WHERE END_STATION_NAME IS NULL;
+
+UPDATE Ride_data
+SET END_STATION_ID = 'Unknown' WHERE END_STATION_ID IS NULL;
+
+UPDATE Ride_data
+SET START_LAT = 'Unknown' WHERE START_LAT IS NULL;
+
+UPDATE Ride_data
+SET START_LNG = 'Unknown' WHERE START_LNG IS NULL;
+
+UPDATE Ride_data
+SET END_LAT = 'Unknown' WHERE END_LAT IS NULL;
+
+UPDATE Ride_data
+SET END_LNG = 'Unknown' WHERE END_LNG IS NULL;
+
+UPDATE Ride_data
+SET MEMBER_CASUAL = 'Unknown' WHERE MEMBER_CASUAL IS NULL;
+SELECT * FROM Ride_data
+WHERE RIDE_ID IS NULL
+   OR RIDEABLE_TYPE IS NULL
+   OR STARTED_AT IS NULL
+   OR ENDED_AT IS NULL
+   OR START_STATION_NAME IS NULL
+   OR START_STATION_ID IS NULL
+   OR END_STATION_NAME IS NULL
+   OR END_STATION_ID IS NULL
+   OR START_LAT IS NULL
+   OR START_LNG IS NULL
+   OR END_LAT IS NULL
+   OR END_LNG IS NULL
+   OR MEMBER_CASUAL IS NULL;
+SELECT RIDE_ID, RIDEABLE_TYPE, STARTED_AT, ENDED_AT, START_STATION_NAME, START_STATION_ID, 
+       END_STATION_NAME, END_STATION_ID, START_LAT, START_LNG, END_LAT, END_LNG, 
+       COALESCE(MEMBER_CASUAL, 'UNKNOWN') AS MEMBER_TYPE 
+FROM Ride_data;
+select *
+from ride_data;
+select *
+from ride_data;
+
+ALTER TABLE Ride_data ADD ride_length NUMBER(10);
+
+UPDATE Ride_data SET ride_length = ROUND((EXTRACT(SECOND FROM (ended_at - started_at))) +
+(EXTRACT(MINUTE FROM (ended_at - started_at)) * 60) +
+(EXTRACT(HOUR FROM (ended_at - started_at)) * 60 * 60));
+ALTER TABLE Ride_data ADD ride_length NUMBER(10);
+
+UPDATE Ride_data SET ride_length = ROUND((EXTRACT(SECOND FROM (ended_at - started_at))) +
+(EXTRACT(MINUTE FROM (ended_at - started_at)) * 60) +
+(EXTRACT(HOUR FROM (ended_at - started_at)) * 60 * 60));
+UPDATE Ride_data
+SET ride_length = ROUND((EXTRACT(SECOND FROM (ended_at - started_at))) +
+                        (EXTRACT(MINUTE FROM (ended_at - started_at)) * 60) +
+                        (EXTRACT(HOUR FROM (ended_at - started_at)) * 60 * 60))
+delete from Ride_data
+where Ride_id = Null;
+DELETE FROM Ride_data WHERE Ride_id = 'Unknown';
+DELETE FROM Rideable_data WHERE Rideable_type = 'Unknown';
+
+DELETE FROM Ride_data
+WHERE STARTED_AT = TIMESTAMP '1970-01-01 00:00:00';
+
+DELETE FROM Ride_data
+WHERE ENDED_AT = TIMESTAMP '1970-01-01 00:00:00';
+
+DELETE FROM Ride_data
+where START_STATION_NAME = 'Unknown';
+
+DELETE FROM Ride_data
+where START_STATION_ID = 'Unknown';
+
+DELETE FROM Ride_data
+where END_STATION_NAME = 'Unknown';
+
+DELETE FROM Ride_data
+where END_STATION_ID = 'Unknown';
+
+DELETE FROM Ride_data
+where START_LAT = 'Unknown';
+
+DELETE FROME Ride_data
+where START_LNG = 'Unknown';
+
+DELETE FROM Ride_data
+where END_LAT = 'Unknown';
+
+DELETE FROM Ride_data
+where END_LNG = 'Unknown';
+
+DELETE FROM Ride_data
+where MEMBER_CASUAL = 'Unknown';
+DELETE FROM Ride_data
+where START_LNG = 'Unknown';
+DELETE FROM Ride_data
+where END_LNG = 'Unknown';
+SELECT DISTINCT * 
+FROM Ride_data;
+SELECT *
+FROM ride_data
+WHERE 'started_station_name' = 'end_station_name';
+SELECT *
+FROM ride_data
+WHERE start_station_name = end_station_name;
+select*
+from ride_data;
+SELECT DISTINCT * FROM Ride_data;
+DELETE FROM Rideable_data 
+WHERE Ride_id = 'Unknown';
+
+DELETE FROM Rideable_data 
+WHERE Rideable_type = 'Unknown';
+
+DELETE FROM Ride_data
+WHERE STARTED_AT = TIMESTAMP '1970-01-01 00:00:00';
+
+DELETE FROM Ride_data
+WHERE ENDED_AT = TIMESTAMP '1970-01-01 00:00:00';
+
+DELETE FROM Ride_data
+where START_STATION_NAME = 'Unknown';
+
+DELETE FROM Ride_data
+where START_STATION_ID = 'Unknown';
+
+DELETE FROM Ride_data
+where END_STATION_NAME = 'Unknown';
+
+DELETE FROM Ride_data
+where END_STATION_ID = 'Unknown';
+
+DELETE FROM Ride_data
+where START_LAT = 'Unknown';
+
+DELETE FROM Ride_data
+where START_LNG = 'Unknown';
+
+DELETE FROM Ride_data
+where END_LAT = 'Unknown';
+
+DELETE FROM Ride_data
+where END_LNG = 'Unknown';
+
+DELETE FROM Ride_data
+where MEMBER_CASUAL = 'Unknown';
+DELETE FROM Ride_data 
+WHERE Ride_id = 'Unknown';
+
+DELETE FROM Ride_data 
+WHERE Rideable_type = 'Unknown';
+ALTER TABLE Ride_data ADD ride_length NUMBER(10);
+UPDATE Ride_data SET ride_length = ROUND((EXTRACT(SECOND FROM (ended_at - started_at))) +
+(EXTRACT(MINUTE FROM (ended_at - started_at)) * 60) +
+(EXTRACT(HOUR FROM (ended_at - started_at)) * 60 * 60));
+DELETE FROM Ride_data
+WHERE ride_length < 120;
+ALTER TABLE Ride_data ADD Day_of_week Varchar2(10);
+SELECT TO_CHAR(SYSDATE, 'DAY') AS day_of_week
+FROM dual;
+SELECT TO_CHAR(SYSDATE, 'DAY') AS day_of_week
+FROM ride_data;
+UPDATE ride_data
+SET ended_at = day_of_week;
+rollback
+UPDATE ride_data
+SET day_of_week = TO_CHAR(ended_at, 'DAY');
+ALTER TABLE ride_data MODIFY day_of_week VARCHAR2(30);
+ALTER TABLE ride_data
+ADD ride_date DATE;
+
+UPDATE ride_data
+SET ride_date = TO_DATE(started_at, 'YYYY-MM-DD HH24:MI:SS');
+UPDATE ride_data
+SET RIDE_DATE = TRUNC(STARTED_AT)
+ALTER TABLE ride_data
+ADD ride_month VARCHAR2(7);
+
+UPDATE ride_data
+SET ride_month = TO_CHAR(STARTED_AT, 'YYYY-MM');
+ALTER TABLE ride_data
+ADD ride_year VARCHAR2(4);
+
+UPDATE ride_data
+SET ride_year = TO_CHAR(STARTED_AT, 'YYYY');
+-- Create the Q1 table
+CREATE TABLE ride_data_Q1 AS
+SELECT *
+FROM ride_data
+WHERE STARTED_AT >= TO_DATE('2022-01-01', 'YYYY-MM-DD')
+AND STARTED_AT < TO_DATE('2022-04-01', 'YYYY-MM-DD');
+
+-- Create the Q2 table
+CREATE TABLE ride_data_Q2 AS
+SELECT *
+FROM ride_data
+WHERE STARTED_AT >= TO_DATE('2022-04-01', 'YYYY-MM-DD')
+AND STARTED_AT < TO_DATE('2022-07-01', 'YYYY-MM-DD');
+
+-- Create the Q3 table
+CREATE TABLE ride_data_Q3 AS
+SELECT *
+FROM ride_data
+WHERE STARTED_AT >= TO_DATE('2022-07-01', 'YYYY-MM-DD')
+AND STARTED_AT < TO_DATE('2022-10-01', 'YYYY-MM-DD');
+
+-- Create the Q4 table
+CREATE TABLE ride_data_Q4 AS
+SELECT *
+FROM ride_data
+WHERE STARTED_AT >= TO_DATE('2022-10-01', 'YYYY-MM-DD')
+AND STARTED_AT < TO_DATE('2023-01-01', 'YYYY-MM-DD');
+select rideable_type, member_casual
+from ride_data;
+SELECT COUNT(*) as total_trips
+FROM ride_data;
+SELECT 
+    TotalTrips,
+    TotalMemberTrips,
+    TotalCasualTrips,
+    ROUND((TotalMemberTrips/TotalTrips)*100, 2) AS MemberPercentage,
+    ROUND((TotalCasualTrips/TotalTrips)*100, 2) AS CasualPercentage
+FROM 
+    (
+    SELECT
+        COUNT(ride_id) AS TotalTrips,
+        COUNT(CASE WHEN member_casual = 'member' THEN ride_id END) AS TotalMemberTrips,
+        COUNT(CASE WHEN member_casual = 'casual' THEN ride_id END) AS TotalCasualTrips
+    FROM
+        ride_data
+    ) subquery;
+SELECT DISTINCT
+    median_ride_length,
+    member_casual
+FROM 
+    (
+    SELECT 
+        ride_id,
+        member_casual,
+        ride_length,
+        PERCENTILE_DISC(0.5) WITHIN GROUP(ORDER BY ride_length) OVER(PARTITION BY member_casual) AS median_ride_length
+    FROM 
+        ride_data
+    )
+ORDER BY 
+    median_ride_length DESC
+FETCH FIRST 2 ROWS ONLY;
